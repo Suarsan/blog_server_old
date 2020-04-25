@@ -1,0 +1,15 @@
+{
+    "development": {
+        "username": "postgres",
+        "password": "Suarez",
+        "database": "bloggraphql",
+        "host": "localhost",
+        "dialect": "postgres"
+    },
+    "production": {
+
+    },
+    "test": {
+
+    }
+}

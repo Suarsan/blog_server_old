@@ -1,0 +1,6 @@
+type Paragraph {
+    id:ID
+    content:String!
+    html_tag:String!
+    classes:String!
+}
