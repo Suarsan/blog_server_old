@@ -1,6 +1,7 @@
 type Paragraph {
-    id:ID
+    id:Int
     content:String!
-    html_tag:String!
-    classes:String!
+    htmlTag:HtmlTag!
+    classes:String
+    position: Int!
 }

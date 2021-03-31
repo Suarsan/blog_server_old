@@ -1,0 +1,57 @@
+// CAMISETASBASICASONLINE
+// {
+//     "development": {
+//         "username": "postgres",
+//         "password": "Suarez",
+//         "database": "bloggraphql",
+//         "host": "localhost",
+//         "dialect": "postgres",
+//         "operatorsAliases": false,
+//         "logging": true
+//     },
+//     "test": {
+//         "username": "root",
+//         "password": null,
+//         "database": "database_test",
+//         "host": "127.0.0.1",
+//         "dialect": "postgres",
+//         "operatorsAliases": false
+//     },
+//     "production": {
+//         "username": "postgres",
+//         "password": "Suarsin,22postgres",
+//         "database": "blog",
+//         "host": "127.0.0.1",
+//         "dialect": "postgres",
+//         "operatorsAliases": false
+//     }
+// }
+
+// LAVERA
+// {
+//     "development": {
+//         "username": "postgres",
+//         "password": "Suarez",
+//         "database": "bloglavera",
+//         "host": "localhost",
+//         "dialect": "postgres",
+//         "operatorsAliases": false,
+//         "logging": true
+//     },
+//     "test": {
+//         "username": "root",
+//         "password": null,
+//         "database": "database_test",
+//         "host": "127.0.0.1",
+//         "dialect": "postgres",
+//         "operatorsAliases": false
+//     },
+//     "production": {
+//         "username": "postgres",
+//         "password": "Suarsin,22postgres",
+//         "database": "lavera",
+//         "host": "127.0.0.1",
+//         "dialect": "postgres",
+//         "operatorsAliases": false
+//     }
+// }

@@ -1,30 +1,37 @@
-import Sequelize from 'sequelize';
-import path from 'path';
+'use strict';
 
-const env = process.env.NODE_ENV || "development";
-const config = require(path.join(__dirname, '../', 'db.json'))[env];
+const fs = require('fs');
+const path = require('path');
+const Sequelize = require('sequelize');
+const basename = path.basename(__filename);
+const env = process.env.NODE_ENV || 'development';
+const config = require(__dirname + '/../config/config.json')[env];
+const db = {};
 
-var sequelize = new Sequelize(config.database, config.username, config.password, {
-    dialect: "postgres",
-    define: {
-        underscored: true,
-    },
-});
+let sequelize;
+if (config.use_env_variable) {
+    sequelize = new Sequelize(process.env[config.use_env_variable], config);
+} else {
+    sequelize = new Sequelize(config.database, config.username, config.password, config);
+}
 
-let db = {
-    Post: sequelize.import('./post.model'),
-    Author: sequelize.import('./author.model'),
-    Paragraph: sequelize.import('./paragraph.model'),
-    Analysis: sequelize.import('./analysis.model'),
-    Tag: sequelize.import('./tag.model'),
-};
+fs
+    .readdirSync(__dirname)
+    .filter(file => {
+        return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
+    })
+    .forEach(file => {
+        const model = sequelize['import'](path.join(__dirname, file));
+        db[model.name] = model;
+    });
 
-Object.keys(db).forEach((modelName) => {
-    if ('associate' in db[modelName]) {
+Object.keys(db).forEach(modelName => {
+    if (db[modelName].associate) {
         db[modelName].associate(db);
     }
 });
 
 db.sequelize = sequelize;
+db.Sequelize = Sequelize;
 
-export default db
+module.exports = db;

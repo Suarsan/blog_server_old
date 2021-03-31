@@ -4,17 +4,24 @@ export default (sequelize, DataTypes) => {
             type: DataTypes.TEXT,
             allowNull: false
         },
-        html_tag: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
         classes: {
             type: DataTypes.STRING,
             allowNull: true
+        },
+        position: {
+            type: DataTypes.INTEGER,
+            allowNull: false
         }
     }, {
-        tableName: 'paragraphs'
+        tableName: 'paragraph'
     });
 
-    return Paragraph
+    Paragraph.associate = models => {
+        Paragraph.belongsTo(models.HtmlTag, {
+            as: 'htmlTag',
+            foreignKey: 'htmltag_id',
+        })
+    }
+
+    return Paragraph;
 }

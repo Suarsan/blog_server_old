@@ -3,7 +3,7 @@ import models from './models'
 import resolvers from './resolvers'
 import typeDefs from './types'
 
-const PORT = process.env.PORT || '4000';
+const PORT = process.env.PORT || '5000';
 
 const schema = makeExecutableSchema({
     typeDefs,
@@ -14,11 +14,14 @@ const apollo = new ApolloServer({
     schema,
     context: {
         models
-    }
+    },
+    introspection: false,
+    playground: false,
+    connectToDevTools: true
 });
 
 models.sequelize.sync().then(() => {
-    apollo.listen(PORT).then(({ url }) => {
+    apollo.listen({ host: 'localhost', port: PORT }).then(({ url }) => {
         console.log(`Servidor corriendo en ${url}`);
     });
 })

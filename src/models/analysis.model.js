@@ -2,7 +2,7 @@ export default (sequelize, DataTypes) => {
     const Analysis = sequelize.define('Analysis', {
         score: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         pros: {
             type: DataTypes.TEXT,

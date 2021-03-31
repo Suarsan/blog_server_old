@@ -1,6 +1,6 @@
 type Analysis {
-    id:ID
-    score:String!
+    id:Int
+    score:String
     pros:String
     cons:String
 }

@@ -1,16 +1,30 @@
 type Author {
-    id:ID
+    id:Int
+    email: String!
+    password: String
     firstname:String
     lastname:String
+    context: Context
 }
 
 type Query {
     getAuthors:[Author!]
+    signIn(signInInput:SignInInput):Author!
 }
 
 type Mutation {
-    addAuthor(
-        firstname:String
-        lastname:String
-    ):Author!
+    signUp(signUpInput: SignUpInput!):Author!
 }
+
+input SignInInput {
+    email: String!
+    password: String!
+}
+
+input SignUpInput {
+    email: String!
+    password: String!
+    firstname:String
+    lastname:String
+}
+

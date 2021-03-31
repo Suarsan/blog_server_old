@@ -1,5 +1,13 @@
 export default (sequelize, DataTypes) => {
     const Author = sequelize.define('Author', {
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         firstname: {
             type: DataTypes.STRING,
             allowNull: false
@@ -9,14 +17,8 @@ export default (sequelize, DataTypes) => {
             allowNull: false
         }
     }, {
-        tableName: 'authors'
+        tableName: 'author'
     });
-
-    Author.associate = models => {
-        Author.hasMany(models.Post, {
-            as: 'posts'
-        });
-    };
 
     return Author;
 }
