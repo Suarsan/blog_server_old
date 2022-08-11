@@ -1,8 +1,8 @@
 {
     "development": {
         "username": "postgres",
-        "password": "Suarez",
-        "database": "bloggraphql",
+        "password": "Suarsin,22postgres",
+        "database": "camisetasbasicas",
         "host": "localhost",
         "dialect": "postgres"
     },
